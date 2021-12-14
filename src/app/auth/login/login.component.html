@@ -1,0 +1,22 @@
+<div class="login-container">
+    <form action="">
+        <div>
+            <h4 class="welcome-header"><b>Welcome</b></h4>
+            <span class="header-para">Please enter your login information below</span>
+        </div>
+        <div>
+            <input required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" type="text"
+                placeholder="e-mail" id="txtUsername" name="txtUsername" maxlength="320">
+        </div>
+        <div>
+            <input required id="txtPassword" name="txtPassword" placeholder="Password" 
+                autocomplete="off" minlength="1" type="password">
+        </div>
+        <div>
+            <button type="submit" id="btnLogin" class="btn-login">Log in</button>
+        </div>
+        <div>
+            <a class="btn-forgot-password" href="#">Forgot Password</a>
+        </div>
+    </form>
+</div>
