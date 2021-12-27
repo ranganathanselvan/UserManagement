@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { InterceptorService } from './_services/interceptor.service';
+import { UserService } from './_services/user.service';
+import { DataShareService } from './_services/datashare.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ManageUserComponent } from './admin/manage-user/manage-user.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './auth/home/home.component';
+import { HeaderComponent } from './site/header/header.component';
+import { FooterComponent } from './site/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +23,23 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     DashboardComponent,
     ManageUserComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    DataShareService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
