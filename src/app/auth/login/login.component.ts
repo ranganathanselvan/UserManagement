@@ -6,6 +6,7 @@ import { AuthenticationService } from '../../_services/authentication.service';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { DataShareService } from 'src/app/_services/datashare.service';
 import { User } from 'src/app/_models/user';
+import { Constant } from 'src/app/_models/constant';
 
 @Component({
   selector: 'app-login',
@@ -44,7 +45,11 @@ export class LoginComponent implements OnInit {
             this.dataShareService.storedUser.subscribe((value: User) => {
               if (value) {
                 sessionStorage.setItem('currentUser', JSON.stringify(value));
-                this.router.navigate(['/dashboard']);
+                if (value.roles!.includes(Constant.Role.Admin)) {
+                  this.router.navigate(['/dashboard']);
+                } else {
+                  this.router.navigate(['/userdashboard']);
+                }
               } else {
                 console.log('Login failed');
               }

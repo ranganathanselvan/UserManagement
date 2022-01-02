@@ -16,6 +16,9 @@ import { ManageUserComponent } from './admin/manage-user/manage-user.component';
 import { HomeComponent } from './auth/home/home.component';
 import { HeaderComponent } from './site/header/header.component';
 import { FooterComponent } from './site/footer/footer.component';
+import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
+import { QuizBoardComponent } from './user/quiz-board/quiz-board.component';
+import { AddUserComponent } from './admin/manage-user/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { FooterComponent } from './site/footer/footer.component';
     ManageUserComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    UserDashboardComponent,
+    QuizBoardComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
