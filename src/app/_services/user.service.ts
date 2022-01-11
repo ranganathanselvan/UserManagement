@@ -25,4 +25,8 @@ export class UserService {
   getAllRoles(): Observable<RoleObject[]> {
     return this.http.get<RoleObject[]>(`api/UserRoles/GetAllRoles`);
   }
+
+  createUser(user: any): Observable<UserObject> {
+    return this.http.post<UserObject>(`api/Account/CreateUser`, user);
+  }
 }

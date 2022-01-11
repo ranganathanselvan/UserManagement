@@ -1,4 +1,4 @@
-<nav *ngIf="isUserLoggedIn" class="navbar navbar-expand-lg navbar-light bg-light">
+<nav *ngIf="isUserLoggedIn" class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/home">User Management</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li *ngIf="currentUser.isAdmin" class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/dashboard">Home</a>
+          <a class="nav-link" aria-current="page" routerLink="/dashboard">Home</a>
         </li>
         <li *ngIf="!currentUser.isAdmin" class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/userdashboard">Home</a>
+          <a class="nav-link" aria-current="page" routerLink="/userdashboard">Home</a>
         </li>
         <li *ngIf="currentUser.isAdmin" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -35,7 +35,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/userdashboard">Quiz Board</a>
+          <a class="nav-link" aria-current="page" routerLink="/userdashboard">Quiz Board</a>
         </li>
       </ul>
       <div class="d-flex">
@@ -43,17 +43,17 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarProfileDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-user"></i> Welcome {{currentUser.firstName}}
+              <i class="bi bi-person mb-1"></i> <span> Welcome {{currentUser.firstName}}</span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarProfileDropdown">
               <li>
                 <a class="dropdown-item" href="#">
-                  <i class="fas fa-user-circle"></i> Profile
+                  <i class="bi bi-person-circle mb-1"></i><span> Profile</span>
                 </a>
               </li>
               <li>
                 <a class="dropdown-item" href="#">
-                  <i class="fas fa-cog"></i> Settings
+                  <i class="bi bi-gear mb-1"></i><span> Settings</span>
                 </a>
               </li>
               <li>
@@ -61,7 +61,7 @@
               </li>
               <li>
                 <a class="dropdown-item" style="cursor: pointer;" (click)="logout()">
-                  <i class="fas fa-user-times"></i> Logout
+                  <i class="bi bi-person-x mb-1"></i><span> Logout</span>
                 </a>
               </li>
             </ul>
